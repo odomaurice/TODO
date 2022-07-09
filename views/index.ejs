@@ -1,0 +1,51 @@
+     <%- include("partials/header")  -%> 
+
+      <nav class="">
+        <img src="images/Notifications_Flatline.svg" width="" alt="">
+        <p class="nav-caption">Hey, <br> let's help organize your day!!</p>
+        <img src="images/notification (1).png" width="50px" alt="">    
+        <img src="images/World wide web_Flatline.svg" alt="">
+      </nav>
+
+     
+
+     <div class="container">
+    <div class="">
+      <h1> <%= listTitle %></h1>
+    </div>
+
+  
+    
+
+    <div class="box">
+      <%  newListItems.forEach(function(item) { %>
+
+      <form action="/delete" method="post">
+
+        <div class="item">
+          <input type="checkbox" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
+          <p> <%= item.name %></p>  <span class="material-icons"></span>
+
+        </div>
+        <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+      </form>
+
+         <% }) %> 
+
+
+    <form class="item" action="/" method="post">
+      <input type="text" name="newItem" placeholder="Enter new item">
+      <button type="submit" name="list" value="<%= listTitle %>">+ Add New</button>
+    </form>
+
+   
+
+      </div>
+
+      </div>
+     
+  </body>
+        
+    <%- include("partials/footer")  -%> 
+</body>
+</html>
